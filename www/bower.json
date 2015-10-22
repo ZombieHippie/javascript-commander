@@ -1,0 +1,28 @@
+{
+  "name": "JavaScript-Commander",
+  "homepage": "https://github.com/ZombieHippie/javascript-commander",
+  "description": "competetive JavaScript programming",
+  "main": "bundle.js",
+  "moduleType": [],
+  "keywords": [
+    "arcade",
+    "game",
+    "programming",
+    "competition"
+  ],
+  "authors": [
+    "Cole R Lawrence (ZombieHippie)"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.1.0"
+  }
+}
