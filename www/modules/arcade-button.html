@@ -1,0 +1,57 @@
+<link rel="import"
+      href="/bower_components/polymer/polymer.html">
+
+<dom-module id="arcade-button">
+
+  <template>
+    <!-- scoped CSS for this element -->
+    <style>
+      .root {
+        display: inline-block;
+        background-color: lawngreen;
+        border-left: 4px solid darkgreen;
+        border-right: 4px solid darkgreen;
+        margin: 4px 0;
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      .root>div {
+        border-top: 4px solid darkgreen;
+        border-bottom: 4px solid darkgreen;
+        margin: -4px 0;
+        padding: 4px 8px;
+      }
+    </style>
+    <div class="root">
+      <!-- any children are rendered here -->
+      <div>  
+        <content></content>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: "arcade-button",
+      properties: {
+        // declare the owner property
+        color: {
+          type: Number,
+          value: 0x00FF00
+        }
+      },
+      ready: function () {
+        var self = this;
+        this.addEventListener("click", function () {
+          console.log("Clicked arcade button: ", self.innerText)
+        })
+      }
+    });
+  </script>
+
+</dom-module>
+<!--
+Further Resources:
+https://www.polymer-project.org/1.0/docs/devguide/local-dom.html#dom-distribution
+ -->

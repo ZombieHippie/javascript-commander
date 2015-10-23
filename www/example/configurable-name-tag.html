@@ -1,0 +1,36 @@
+<link rel="import"
+      href="/bower_components/polymer/polymer.html">
+
+<dom-module id="configurable-name-tag">
+  <style>
+    div { padding: 20px; }
+  </style>
+  <template>
+    <div>
+      This is <b>{{owner}}</b>'s awesome
+    </div>
+    <!-- bind to the "owner" property -->
+  </template>
+
+  <script>
+    Polymer({
+      is: "configurable-name-tag",
+      properties: {
+        // declare the owner property
+        owner: {
+          type: String,
+          value: "Daniel"
+        },
+        color: {
+          type: Number,
+          value: 0x00FF00
+        }
+      },
+      ready: function () {
+        var background = "#" + this.color.toString(16)
+        this.children[0].style.backgroundColor = background;
+      }
+    });
+  </script>
+  
+</dom-module>
