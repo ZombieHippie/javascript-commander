@@ -6,28 +6,27 @@
   <template>
     <!-- scoped CSS for this element -->
     <style>
-      .root {
+      :host, div {
+        border: 0px solid;
+        border-color: var(--arcade-button-border-color);
+      }
+      :host {
         display: inline-block;
-        background-color: lawngreen;
-        border-left: 4px solid darkgreen;
-        border-right: 4px solid darkgreen;
+        background-color: var(--arcade-button-background-color);
+        border-width: 0 4px;
         margin: 4px 0;
         cursor: pointer;
         user-select: none;
         -webkit-user-select: none;
       }
-      .root>div {
-        border-top: 4px solid darkgreen;
-        border-bottom: 4px solid darkgreen;
+      :host>div {
+        border-width: 4px 0px;
         margin: -4px 0;
         padding: 4px 8px;
       }
     </style>
-    <div class="root">
-      <!-- any children are rendered here -->
-      <div>  
-        <content></content>
-      </div>
+    <div>
+      <div>{{title}}</div>
     </div>
   </template>
 
@@ -36,16 +35,10 @@
       is: "arcade-button",
       properties: {
         // declare the owner property
-        color: {
-          type: Number,
-          value: 0x00FF00
+        title: {
+          type: String,
+          value: "Arcade Button"
         }
-      },
-      ready: function () {
-        var self = this;
-        this.addEventListener("click", function () {
-          console.log("Clicked arcade button: ", self.innerText)
-        })
       }
     });
   </script>

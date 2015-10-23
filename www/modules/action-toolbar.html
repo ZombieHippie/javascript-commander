@@ -1,0 +1,19 @@
+<dom-module id="action-toolbar">
+  <template>
+    <style>
+      .run {
+        --arcade-button-background-color: #00ff44;
+        --arcade-button-border-color: #00ee12;
+      }
+      .skip {
+        --arcade-button-background-color: #bbb;
+        --arcade-button-border-color: #999;
+      }
+    </style>      
+    <arcade-button class="skip" title="Skip"></arcade-button>
+    <arcade-button class="run" title="Run"></arcade-button>
+  </template>
+  <script>
+    Polymer({ is: 'action-toolbar'});
+  </script>
+</dom-module>
