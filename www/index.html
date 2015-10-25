@@ -1,21 +1,15 @@
 <head>
   <title>JavaScript Commander</title>
   <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-  <link rel="import" href="example/configurable-name-tag.html">
-  <link rel="import" href="example/editable-name-tag.html">
-  <link rel="import" href="modules/arcade-button.html">
-  <link rel="import" href="modules/action-toolbar.html">
-  <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="stylesheet" href="bundle.css">
+  <link rel="import" href="modules/start-page.html">
   <style>
     html { font-family: sans-serif; }
   </style>
 </head>
 <body>
-  <name-tag></name-tag>
-  <br>
-  <action-toolbar></action-toolbar>
-  <paper-button keyboardEventMatchesKeys="a">Goodbye</paper-button>
-  <editable-name-tag owner="Jeff"></editable-name-tag>
-  <configurable-name-tag owner="Matt Pierzynski" color="0xFF99BB"></configurable-name-tag>
+  <div id="main"></div>
 
+  <start-page></start-page>
+  <script src="bundle.js"></script>
 </body>

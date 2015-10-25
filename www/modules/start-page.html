@@ -1,0 +1,20 @@
+<link rel="import"
+      href="/bower_components/polymer/polymer.html">
+<link rel="import"
+      href="arcade-button.html">
+<dom-module id="start-page">
+  <template>
+    <style>
+      .start {
+        --arcade-button-background-color: #00ff44;
+        --arcade-button-border-color: #00ee12;
+      }
+    </style>
+    <a href="#!/start">
+      <arcade-button class="start" title="Start"></arcade-button>
+    </a>
+  </template>
+  <script>
+    Polymer({ is: 'start-page'});
+  </script>
+</dom-module>
