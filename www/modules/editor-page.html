@@ -1,0 +1,27 @@
+<link rel="import"
+      href="/bower_components/polymer/polymer.html">
+<link rel="import"
+      href="codemirror-editor.html">
+<link rel="import" href="/bower_components/paper-card">
+<dom-module id="editor-page">
+  <template>
+    <style>
+      .start {
+        --arcade-button-background-color: #00ff44;
+        --arcade-button-border-color: #00ee12;
+      }
+    </style>
+    <div>
+      <codemirror-editor bind-value="{{editor}}"></codemirror-editor>
+      <pre>{{editor}}</pre>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'editor-page',
+      ready: function InitiallizeEditorPage () {
+        
+      },
+    });
+  </script>
+</dom-module>

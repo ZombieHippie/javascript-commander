@@ -34,4 +34,6 @@ for (key in altDefaults) {
   CodeMirror.defaults[key] = altDefaults[key]
 }
 
+window.CodeMirror = CodeMirror
+
 module.exports = CodeMirror

@@ -1,0 +1,80 @@
+<link rel="import"
+      href="/bower_components/polymer/polymer.html">
+<dom-module id="codemirror-editor">
+  <template>
+    <style>
+      .start {
+        --arcade-button-background-color: #00ff44;
+        --arcade-button-border-color: #00ee12;
+      }
+    </style>
+    <div></div>
+  </template>
+  <script>
+    Polymer({
+      is: 'codemirror-editor',
+      ready: function InitiallizeEditor () {
+        this.mirror = CodeMirror(this.children[0], {
+          value: this.value || this.textContent
+        })
+      },
+      properties: {
+        /**
+         * Use this property instead of `value` for two-way data binding.
+         * 
+         * @type {string|number|undefined|null}
+         */
+        bindValue: {
+          observer: '_bindValueChanged',
+          type: String
+        },
+
+        /**
+         * The value for this input, same as `bindValue`
+         */
+        value: {
+          notify: true,
+          type: String,
+          computed: '_computeValue(bindValue)'
+        }
+
+      },
+
+      listeners: {
+        'change': '_onInput'
+      },
+      /**
+       * Returns the underlying mirror.
+       * @type CodeMirror
+       */
+      get mirror() {
+        return this.$.mirror;
+      },
+
+      _bindValueChanged: function() {
+        console.log("change")
+        var mirror = this.$.mirror;
+        if (!mirror) {
+          return;
+        }
+        // If the bindValue changed manually, then we need to also update
+        // the underlying mirror's value. Otherwise this change was probably
+        // generated from the _onInput handler, and the two values are already
+        // the same.
+        if (mirror.getValue() !== this.bindValue) {
+          mirror.setValue(!(this.bindValue || this.bindValue === 0) ? '' : this.bindValue);
+        }
+        this.$.mirror.setValue(this._valueForMirror());
+        // manually notify because we don't want to notify until after setting value
+        this.fire('bind-value-changed', {value: this.bindValue});
+      },
+      _onInput: function(event) {
+        console.log("input")
+        this.bindValue = event.path ? event.path[0].value : event.target.value;
+      },
+      _computeValue: function() {
+        return this.bindValue;
+      }
+    });
+  </script>
+</dom-module>

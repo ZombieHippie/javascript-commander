@@ -1,6 +1,8 @@
 var browserStore = require('browser-store')
 var page = require('page.js')
 
+require("./editor.jsx")
+
 var GameClient = require("./lib/game-client.jsx")
 var client = new GameClient()
 
@@ -11,7 +13,7 @@ page("/start", function startRound () {
   page.redirect("/round/1")
 })
 
-require("./routes/round.jsx")(page, client)
+//require("./routes/round.jsx")(page, client)
 
 page("/gameover", function showGameover () {
   console.log("gameover")
@@ -19,6 +21,10 @@ page("/gameover", function showGameover () {
 
 page("/", function showStartScreen (ctx) {
   console.log("hello", ctx)
+})
+
+page(function redirectToRoot (ctx) {
+  page.redirect('/')
 })
 
 var editorEl = document.getElementById("editor")
